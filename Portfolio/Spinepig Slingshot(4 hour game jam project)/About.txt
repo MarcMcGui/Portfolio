@@ -1,0 +1,2 @@
+Four hour game jam project amde with two other coders, worked on 
+-slingshot funcitonality and particle effects

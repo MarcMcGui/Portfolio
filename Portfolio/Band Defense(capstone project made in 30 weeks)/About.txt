@@ -1,0 +1,7 @@
+This was my senior year capstone projects which I contributed the code for:
+-The fans
+-The band members
+-The upgrade system
+-Most of the game manager
+-The file save/loading funcitonality
+

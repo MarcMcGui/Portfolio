@@ -1,0 +1,1 @@
+Global Game Jam project, contributed to most code as well as instruciton team on how to use unity.
