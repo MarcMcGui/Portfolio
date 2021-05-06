@@ -1,0 +1,38 @@
+*.meta
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/output_log.txt
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/sharedassets0.assets
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/sharedassets0.assets.resS
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/sharedassets1.assets
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/sharedassets1.assets.resS
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/sharedassets1.resource
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/sharedassets2.assets
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/sharedassets3.assets
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/sharedassets4.assets
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/Managed/Assembly-CSharp.dll
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/Managed/Mono.Security.dll
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/Managed/mscorlib.dll
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/Managed/System.Core.dll
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/Managed/System.dll
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/Managed/UnityEngine.dll
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/Managed/UnityEngine.dll.mdb
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/Managed/UnityEngine.Networking.dll
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/Managed/UnityEngine.UI.dll
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/Mono/mono.dll
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/Mono/etc/mono/browscap.ini
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/Mono/etc/mono/config
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/Mono/etc/mono/1.0/DefaultWsdlHelpGenerator.aspx
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/Mono/etc/mono/1.0/machine.config
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/Mono/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/Mono/etc/mono/2.0/machine.config
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/Mono/etc/mono/2.0/settings.map
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/Mono/etc/mono/2.0/web.config
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/Mono/etc/mono/2.0/Browsers/Compat.browser
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/Mono/etc/mono/mconfig/config.xml
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/Resources/unity default resources
+Portfolio/Warp/MyActualGame - Copy/TheGAme_Data/Resources/unity_builtin_extra
+Portfolio/Warp/MyActualGame - Copy/Library/metadata/*
+Portfolio/Warp/MyActualGame - Copy/Library/ShaderCache/0/0a12e7fdff5c2a410c5a68a9016d9415.bin
+Portfolio/Warp/MyActualGame - Copy/Library/ShaderCache/0/0ac15fdf3dc9e1cb8ea0e7b77c409ec9.bin
+Portfolio/Warp/MyActualGame - Copy/Library/ShaderCache/*
+*.dll
+*.exe
