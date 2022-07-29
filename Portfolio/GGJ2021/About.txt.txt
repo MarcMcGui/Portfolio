@@ -1,3 +1,0 @@
-Game jam project for 2021
-responsibilities: helped organize general structures, coded behavior 
-for all plant objects and gamemabager/grid system
