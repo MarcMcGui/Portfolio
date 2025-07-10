@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0lfipqutwnla"]
+
+[ext_resource type="Script" path="res://Scripts/SpawnTower.gd" id="1_03a5w"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5ssja"]
+height = 0.740371
+radius = 0.171369
+
+[node name="RigidBody3D2" type="RigidBody3D" node_paths=PackedStringArray("spawnLocation")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0728101, 0.463317, 0)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("1_03a5w")
+spawnLocation = NodePath("Node3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
+shape = SubResource("CylinderShape3D_5ssja")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.367805, 0, 0, 0, 0.440081, 0, 0, 0, 0.379148, 0, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.554859, -0.278574, 0)

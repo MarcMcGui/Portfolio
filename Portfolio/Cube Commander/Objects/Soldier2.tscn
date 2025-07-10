@@ -1,0 +1,233 @@
+[gd_scene load_steps=21 format=3 uid="uid://ik6ti1h5lgrk"]
+
+[ext_resource type="Script" path="res://Scripts/Player Units/PlayerSoldier.gd" id="1_4kqdf"]
+[ext_resource type="Material" uid="uid://cal8ld26n2u6t" path="res://Material/enemy unit.tres" id="2_8ejfc"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b4w0m"]
+animation = &"Swing"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ywqu4"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0sf71"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2nr56"]
+advance_mode = 2
+advance_condition = &"is_attacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_picgr"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_eskig"]
+states/Swing/node = SubResource("AnimationNodeAnimation_b4w0m")
+states/Swing/position = Vector2(461, 18)
+states/idle/node = SubResource("AnimationNodeAnimation_ywqu4")
+states/idle/position = Vector2(461, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_0sf71"), "idle", "Swing", SubResource("AnimationNodeStateMachineTransition_2nr56"), "Swing", "idle", SubResource("AnimationNodeStateMachineTransition_picgr")]
+graph_offset = Vector2(-177, -36)
+
+[sub_resource type="Animation" id="Animation_7pk08"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Camera3D/Node3D/AttackArea/CSGBox3D2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.26293, 1.56435, 2.98789)]
+}
+
+[sub_resource type="Animation" id="Animation_e12gw"]
+resource_name = "Swing"
+step = 0.0416667
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Camera3D/Node3D/AttackArea/CSGBox3D2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.096, 0.006, -0.205, 0.1668, 1, 0.1, 0.006, -0.205, 0.2502, 1, -0.08, -0.02, -0.155, 0.417, 1, 0.096, 0.006, -0.205)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Camera3D/Node3D/AttackArea/CSGBox3D2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1668, 0.2502, 0.417),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.26293, 1.56435, 2.98789), Vector3(-1.26293, 1.56435, 2.98789), Vector3(-0.0314619, 3.13326, 2.9869), Vector3(-1.26293, 1.56435, 2.98789)]
+}
+
+[sub_resource type="Animation" id="Animation_jpc6a"]
+
+[sub_resource type="Animation" id="Animation_04hpc"]
+resource_name = "idle"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Camera3D/Node3D/AttackArea/CSGBox3D2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.1, 1, 0.096, 0.006, -0.205)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Camera3D/Node3D/AttackArea/CSGBox3D2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.26293, 1.56435, 2.98789)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wq5el"]
+_data = {
+"RESET": SubResource("Animation_7pk08"),
+"Swing": SubResource("Animation_e12gw"),
+"Swing2": SubResource("Animation_jpc6a"),
+"idle": SubResource("Animation_04hpc")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0tbse"]
+size = Vector3(0.260591, 0.172356, 0.313382)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aj8wd"]
+size = Vector3(0.295461, 0.169936, 0.177442)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_if0f0"]
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_00nty"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 0.180392, 0.227451, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h6hi2"]
+direction = Vector3(0, 0, 0)
+spread = 103.65
+gravity = Vector3(0, -6.8, 0)
+initial_velocity_min = 1.5
+initial_velocity_max = 3.0
+damping_min = 1.5
+damping_max = 1.5
+scale_min = 0.03
+scale_max = 0.05
+
+[sub_resource type="BoxMesh" id="BoxMesh_odjbt"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_exo4f"]
+particle_flag_align_y = true
+direction = Vector3(0, 0.8, 0)
+spread = 59.02
+initial_velocity_min = 1.5
+initial_velocity_max = 2.5
+scale_min = 0.1
+scale_max = 0.2
+hue_variation_max = 0.25
+
+[node name="Soldier" type="CharacterBody3D" node_paths=PackedStringArray("animTree", "visionSphere", "body", "attackRange", "camera", "attackCooldown", "hitDelay", "deathParticle", "hitParticle", "Weapon")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000894148, 0.207025, 0)
+collision_layer = 16
+collision_mask = 19
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_4kqdf")
+animTree = NodePath("AnimationTree")
+team = 2
+speed = 1.0
+visionSphere = NodePath("Visoin Sphere")
+body = NodePath("CSGBox3D")
+attackRange = NodePath("Camera3D/Node3D/AttackArea")
+camera = NodePath("Camera3D")
+attackCooldown = NodePath("Timer2")
+hitDelay = NodePath("Timer")
+attackDelay = 0.24
+deathParticle = NodePath("GPUParticles3D")
+hitParticle = NodePath("HitParticle")
+Weapon = NodePath("Camera3D/Node3D")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_eskig")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/conditions/is_attacking = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationTree")
+libraries = {
+"": SubResource("AnimationLibrary_wq5el")
+}
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00351304, 0, 0)
+material_override = ExtResource("2_8ejfc")
+size = Vector3(0.224632, 0.16093, 0.305133)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_0tbse")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.152264, 0.940742, 0.303019, 0.046392, -0.299452, 0.952983, 0.98725, 0.159163, 0.00195298, 0.096, 0.00600001, -0.205)
+visible = false
+size = Vector3(0.0233708, 0.002, 0.155256)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000278786, 0.00747511, -0.0938173)
+
+[node name="Node3D" type="Node3D" parent="Camera3D"]
+
+[node name="AttackArea" type="Area3D" parent="Camera3D/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000278786, -0.00747511, 0.0991969)
+collision_layer = 2
+collision_mask = 6
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Camera3D/Node3D/AttackArea"]
+transform = Transform3D(-0.152267, 0.940739, 0.30302, 0.0463927, -0.299453, 0.952983, 0.987249, 0.159165, 0.00195339, 0.096, 0.006, -0.205)
+size = Vector3(0.0233708, 0.002, 0.155256)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Node3D/AttackArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000215024, 0.018179, -0.261976)
+shape = SubResource("BoxShape3D_aj8wd")
+
+[node name="Visoin Sphere" type="Area3D" parent="."]
+collision_layer = 31
+collision_mask = 31
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Visoin Sphere"]
+shape = SubResource("SphereShape3D_if0f0")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Timer2" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="HitParticle" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_00nty")
+emitting = false
+amount = 10
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_h6hi2")
+draw_pass_1 = SubResource("BoxMesh_odjbt")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_00nty")
+emitting = false
+amount = 10
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_exo4f")
+draw_pass_1 = SubResource("BoxMesh_odjbt")

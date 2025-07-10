@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://hirbckwpjgaf"]
+
+[ext_resource type="Script" path="res://Scripts/EnemySoldier.gd" id="1_ivckm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2fp87"]
+vertex_color_is_srgb = true
+albedo_color = Color(0.988235, 0, 0.0156863, 1)
+metallic = 1.0
+metallic_specular = 0.0
+metallic_texture_channel = 1
+emission_enabled = true
+emission = Color(0.945098, 0.266667, 0, 1)
+emission_energy_multiplier = 0.0
+clearcoat_enabled = true
+clearcoat_roughness = 0.0
+backlight_enabled = true
+backlight = Color(1, 0, 0.0352941, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0tbse"]
+size = Vector3(0.217981, 0.172356, 0.293762)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_if0f0"]
+radius = 0.53654
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_beyoo"]
+size = Vector3(1, 0.512234, 1)
+
+[node name="EnemySoldier" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000894148, 0.490358, 0)
+collision_layer = 2
+collision_mask = 3
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_ivckm")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00351304, 0, 0)
+material_override = SubResource("StandardMaterial3D_2fp87")
+size = Vector3(0.224632, 0.16093, 0.305133)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_0tbse")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 15
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_if0f0")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(-1.31134e-08, 0, 0.1, 0, 0.1, 0, 0.3, 0, 4.37114e-09, 0.0127555, 0.00184238, 0.292999)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="RigidBody3D"]
+size = Vector3(1, 0.002, 0.666585)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 4.26326e-14, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_beyoo")

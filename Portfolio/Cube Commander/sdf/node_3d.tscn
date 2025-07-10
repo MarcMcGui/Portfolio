@@ -1,0 +1,168 @@
+[gd_scene load_steps=17 format=3 uid="uid://bjawp624dig0g"]
+
+[ext_resource type="PackedScene" uid="uid://c0lfipqutwnla" path="res://Objects/SpawnTower.tscn" id="1_c7ko6"]
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="2_icg70"]
+[ext_resource type="PackedScene" uid="uid://ik6ti1h5lgrk" path="res://Objects/Soldier2.tscn" id="3_wd8h1"]
+[ext_resource type="PackedScene" uid="uid://4csmmmmo8mcx" path="res://Objects/Forest Chunk.tscn" id="4_4cvtj"]
+[ext_resource type="PackedScene" uid="uid://cbrj8v2pwt8rm" path="res://Objects/Grass.tscn" id="5_2fnxc"]
+[ext_resource type="PackedScene" uid="uid://cuqn3sg00sws4" path="res://Objects/Wizard.tscn" id="6_wadtn"]
+[ext_resource type="PackedScene" uid="uid://ug0fexaokyb0" path="res://Objects/Starss.tscn" id="7_m56wv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7vper"]
+
+[sub_resource type="Sky" id="Sky_krflu"]
+sky_material = SubResource("ProceduralSkyMaterial_7vper")
+process_mode = 1
+
+[sub_resource type="Environment" id="Environment_o484p"]
+background_mode = 1
+background_color = Color(0.0313726, 0, 0.454902, 1)
+sky = SubResource("Sky_krflu")
+ambient_light_source = 1
+reflected_light_source = 1
+fog_light_energy = 0.0
+fog_density = 0.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0079
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hwf4o"]
+shading_mode = 0
+disable_receive_shadows = true
+shadow_to_opacity = true
+billboard_keep_scale = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tmwq4"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sfjjy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vx3g1"]
+shading_mode = 2
+albedo_color = Color(0, 0.654902, 0.207843, 1)
+metallic = 1.0
+metallic_specular = 0.0
+metallic_texture = SubResource("NoiseTexture2D_tmwq4")
+metallic_texture_channel = 1
+roughness_texture = SubResource("NoiseTexture2D_sfjjy")
+roughness_texture_channel = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wc1gi"]
+size = Vector3(385, 0.167788, 311)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wme2i"]
+size = Vector3(1.08677, 0.822862, 10.2211)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_o484p")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.16051, 0)
+light_energy = 2.131
+light_bake_mode = 1
+shadow_enabled = true
+shadow_bias = 0.605
+shadow_normal_bias = 4.535
+shadow_transmittance_bias = -3.182
+shadow_opacity = 0.3
+shadow_blur = 1.101
+omni_range = 10.411
+
+[node name="CSGSphere3D" type="CSGBox3D" parent="."]
+transform = Transform3D(2.12559, 0, 0, 0, 0.247835, 0, 0, 0, 1.59907, 0, 10.7632, 0)
+material_override = SubResource("StandardMaterial3D_hwf4o")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0135608, 0.999908, 0, -0.999908, 0.0135608, 0.0811137, 2.51392, 0.0545535)
+fov = 86.4411
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0313963, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0253674, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Node3D/StaticBody3D"]
+transform = Transform3D(1, 0.000604596, -5.99326e-05, -0.000604607, 0.999999, -0.000218828, 5.98191e-05, 0.000218859, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_vx3g1")
+size = Vector3(387.089, 0.169316, 311.809)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_wc1gi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/StaticBody3D"]
+
+[node name="Unit Box" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0525106, 0.490358, 0)
+
+[node name="RigidBody3D2" parent="." instance=ExtResource("1_c7ko6")]
+transform = Transform3D(-0.998867, 0, -0.0475947, 0, 1, 0, 0.0475947, 0, -0.998867, -2.44935, 0.488889, 0.224477)
+
+[node name="GameManager" type="Node3D" parent="."]
+script = ExtResource("2_icg70")
+
+[node name="Soldier" parent="." instance=ExtResource("3_wd8h1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21928, 0.488201, 0.628148)
+
+[node name="Wall4" type="StaticBody3D" parent="."]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.42427, 0, -2.12188)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.158978, 0.498124, 0)
+shape = SubResource("BoxShape3D_wme2i")
+
+[node name="Wall3" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.841035, 0, 2.50829)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.158978, 0.498124, 0)
+shape = SubResource("BoxShape3D_wme2i")
+
+[node name="Wall2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.26266, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.158978, 0.498124, 0)
+shape = SubResource("BoxShape3D_wme2i")
+
+[node name="Wall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60668, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.158978, 0.498124, 0)
+shape = SubResource("BoxShape3D_wme2i")
+
+[node name="Forest Chunk" parent="." instance=ExtResource("4_4cvtj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.26741, 0.052498, 1.42414)
+
+[node name="Forest Chunk2" parent="." instance=ExtResource("4_4cvtj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.86384, 0.0524975, 0.463936)
+
+[node name="Forest Chunk3" parent="." instance=ExtResource("4_4cvtj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.605354, 0.0524975, 7.36399)
+
+[node name="Forest Chunk4" parent="." instance=ExtResource("4_4cvtj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.813484, 0.0524984, -6.97685)
+
+[node name="Grass" parent="." instance=ExtResource("5_2fnxc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.390234, 0.0524975, 0.56459)
+
+[node name="Soldier2" parent="." instance=ExtResource("3_wd8h1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.56932, 0.325607, -0.91808)
+
+[node name="Soldier3" parent="." instance=ExtResource("3_wd8h1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0357499, 0.195351, 0.998406)
+
+[node name="Wizard" parent="." instance=ExtResource("6_wadtn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16357, 0.558649, 1.5536)
+
+[node name="Starss" parent="." instance=ExtResource("7_m56wv")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, -15.492, -1)

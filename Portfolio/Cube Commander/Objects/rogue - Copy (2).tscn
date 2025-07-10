@@ -1,0 +1,418 @@
+[gd_scene load_steps=32 format=3 uid="uid://dsgseoqw5v8yq"]
+
+[ext_resource type="Script" path="res://Objects/rogue.gd" id="1_qmcep"]
+[ext_resource type="Material" uid="uid://ctk2i5tsi8mmu" path="res://Material/unit.tres" id="2_p8dyc"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_conxj"]
+animation = &"Rogue Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_km8ts"]
+animation = &"rogue Swing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ncddi"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xuqbs"]
+reset = false
+switch_mode = 1
+advance_mode = 2
+advance_condition = &"is_attacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_errqj"]
+reset = false
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_eskig"]
+"states/Rogue Idle/node" = SubResource("AnimationNodeAnimation_conxj")
+"states/Rogue Idle/position" = Vector2(423, 72)
+"states/rogue Swing/node" = SubResource("AnimationNodeAnimation_km8ts")
+"states/rogue Swing/position" = Vector2(423, 173)
+transitions = ["Start", "Rogue Idle", SubResource("AnimationNodeStateMachineTransition_ncddi"), "Rogue Idle", "rogue Swing", SubResource("AnimationNodeStateMachineTransition_xuqbs"), "rogue Swing", "Rogue Idle", SubResource("AnimationNodeStateMachineTransition_errqj")]
+graph_offset = Vector2(-177, -36)
+
+[sub_resource type="Animation" id="Animation_7pk08"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Camera3D/Node3D/CSGBox3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0419458, -0.0419136, -0.169808)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Camera3D/Node3D/CSGBox3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.824405, -0.625375, 0.570409)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Camera3D/Node3D/CSGBox3D3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.069215, -0.0419136, -0.165437)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Camera3D/Node3D/CSGBox3D3:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.381163, 0.915905, -0.922823)]
+}
+
+[sub_resource type="Animation" id="Animation_mt7fu"]
+resource_name = "Rogue Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Camera3D/Node3D/CSGBox3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.0419458, -0.0419136, -0.169808), Vector3(0.0419458, -0.0419136, -0.220739), Vector3(0.0419458, -0.0419136, -0.169808)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Camera3D/Node3D/CSGBox3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.824405, -0.625375, 0.570409), Vector3(-1.40689, -0.853742, 0.89666), Vector3(-0.824405, -0.625375, 0.570409)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Camera3D/Node3D/CSGBox3D3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.069215, -0.0419136, -0.165437), Vector3(-0.0692149, -0.0419136, -0.221056), Vector3(-0.069215, -0.0419136, -0.165437)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Camera3D/Node3D/CSGBox3D3:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.381163, 0.915905, -0.922823), Vector3(-1.40396, 0.820813, -0.591853), Vector3(-0.381163, 0.915905, -0.922823)]
+}
+
+[sub_resource type="Animation" id="Animation_e12gw"]
+resource_name = "Swing"
+step = 0.0416667
+
+[sub_resource type="Animation" id="Animation_jpc6a"]
+
+[sub_resource type="Animation" id="Animation_04hpc"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_bjusw"]
+resource_name = "rogue Swing"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wq5el"]
+_data = {
+"RESET": SubResource("Animation_7pk08"),
+"Rogue Idle": SubResource("Animation_mt7fu"),
+"Swing": SubResource("Animation_e12gw"),
+"Swing2": SubResource("Animation_jpc6a"),
+"idle": SubResource("Animation_04hpc"),
+"rogue Swing": SubResource("Animation_bjusw")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0tbse"]
+size = Vector3(0.260591, 0.172356, 0.313382)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aj8wd"]
+size = Vector3(0.306267, 0.169936, 0.119729)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_if0f0"]
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u0nfh"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0.47451, 0.796078, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_reaox"]
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 10.0
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+scale_min = 0.1
+scale_max = 0.2
+
+[sub_resource type="BoxMesh" id="BoxMesh_sldxj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rir3c"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0.603922, 0.831373, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_niqgo"]
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 10.0
+initial_velocity_min = 2.5
+initial_velocity_max = 5.0
+scale_min = 0.03
+scale_max = 0.05
+
+[sub_resource type="BoxMesh" id="BoxMesh_axt7x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3siv"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abxbp"]
+bg_color = Color(1, 0.435294, 0.105882, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_cuue6"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_exjvt"]
+font_size = 40
+font_color = Color(1, 1, 1, 0.333333)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtadh"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0n6p"]
+bg_color = Color(0.847059, 0.509804, 0.0235294, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0af75"]
+font_size = 31
+
+[node name="Rogue" type="CharacterBody3D" node_paths=PackedStringArray("animTree", "visionSphere", "body", "attackRange", "camera", "attackCooldown", "hitDelay", "deathParticle", "hitParticle", "healthBar", "PossessedUI") groups=["Player units"]]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.000894148, 0.509322, 0)
+collision_layer = 2
+collision_mask = 17
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_qmcep")
+animTree = NodePath("AnimationTree")
+team = 1
+speed = 1.5
+visionSphere = NodePath("VisionArea")
+body = NodePath("CSGBox3D")
+attackRange = NodePath("Camera3D/Node3D/AttackArea")
+camera = NodePath("Camera3D")
+attackCooldown = NodePath("AttackTimer")
+hitDelay = NodePath("hitDelay")
+deathParticle = NodePath("GPUParticles3D")
+hitParticle = NodePath("HitParticle")
+healthBar = NodePath("SubViewport/Healthbar")
+PossessedUI = NodePath("CanvasLayer")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_eskig")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/conditions/is_attacking = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationTree")
+libraries = {
+"": SubResource("AnimationLibrary_wq5el")
+}
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00351304, 0, 0)
+material_override = ExtResource("2_p8dyc")
+transparency = 0.54
+size = Vector3(0.224632, 0.16093, 0.305133)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_0tbse")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.152264, 0.940742, 0.303019, 0.046392, -0.299452, 0.952983, 0.98725, 0.159163, 0.00195298, 0.096, 0.00600001, -0.205)
+visible = false
+size = Vector3(0.0233708, 0.002, 0.155256)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1.66667, 0, 0, 0, 1.66667, 0, 0, 0, 1.66667, 0.000278786, 0.00747514, -0.106917)
+
+[node name="Node3D" type="Node3D" parent="Camera3D"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.000278786, 0.00320625, 0.0353414)
+
+[node name="AttackArea" type="Area3D" parent="Camera3D/Node3D"]
+collision_layer = 18
+collision_mask = 18
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Node3D/AttackArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000215024, 0.018179, -0.194855)
+shape = SubResource("BoxShape3D_aj8wd")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Camera3D/Node3D"]
+transform = Transform3D(0.914451, -0.0760546, -0.397484, 0.36664, 0.571496, 0.734144, 0.171325, -0.817073, 0.55049, 0.0419458, -0.0419136, -0.169808)
+size = Vector3(0.0158813, 0.0523912, 0.002)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Camera3D/Node3D"]
+transform = Transform3D(0.991186, -0.0492116, -0.122992, 0.12748, 0.101857, 0.986597, -0.0360243, -0.993581, 0.107233, 0.0419458, -0.0419136, -0.220739)
+visible = false
+size = Vector3(0.0158813, 0.0523912, 0.002)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Camera3D/Node3D"]
+transform = Transform3D(0.602856, 0.307542, 0.736194, -0.740088, 0.560255, 0.372, -0.298051, -0.769111, 0.565361, -0.069215, -0.0419136, -0.165437)
+size = Vector3(0.0158813, 0.0523912, 0.002)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Camera3D/Node3D"]
+transform = Transform3D(0.968234, -0.218533, 0.12151, -0.0926474, 0.137818, 0.986114, -0.232245, -0.966048, 0.113194, -0.0692149, -0.0419136, -0.221056)
+visible = false
+size = Vector3(0.0158813, 0.0523912, 0.002)
+
+[node name="VisionArea" type="Area3D" parent="."]
+collision_layer = 31
+collision_mask = 31
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VisionArea"]
+shape = SubResource("SphereShape3D_if0f0")
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="hitDelay" type="Timer" parent="."]
+wait_time = 0.24
+one_shot = true
+autostart = true
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_u0nfh")
+emitting = false
+amount = 10
+one_shot = true
+explosiveness = 1.0
+visibility_aabb = AABB(-0.456979, -1.11102, -0.539887, 0.913958, 2.00134, 1.07977)
+process_material = SubResource("ParticleProcessMaterial_reaox")
+draw_pass_1 = SubResource("BoxMesh_sldxj")
+
+[node name="HitParticle" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_rir3c")
+emitting = false
+amount = 10
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_niqgo")
+draw_pass_1 = SubResource("BoxMesh_axt7x")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+
+[node name="Healthbar" type="ProgressBar" parent="SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.0
+offset_top = -13.5
+offset_right = 275.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_i3siv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_abxbp")
+value = 100.0
+show_percentage = false
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.00203092, 0.113938, -0.0108735)
+billboard = 1
+texture = SubResource("ViewportTexture_cuue6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -29.0
+offset_right = 11.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "+"
+label_settings = SubResource("LabelSettings_exjvt")
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.139
+anchor_top = 0.019
+anchor_right = 0.139
+anchor_bottom = 0.019
+offset_left = -0.128021
+offset_top = -0.312001
+offset_right = 299.872
+offset_bottom = 38.688
+theme_override_styles/background = SubResource("StyleBoxFlat_dtadh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_o0n6p")
+value = 100.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.032
+anchor_top = 0.009
+anchor_right = 0.032
+anchor_bottom = 0.009
+offset_left = 0.135998
+offset_top = 0.168
+offset_right = 121.136
+offset_bottom = 47.168
+text = "Health:"
+label_settings = SubResource("LabelSettings_0af75")
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://rn8x8rrggdqb"]
+
+[ext_resource type="Script" path="res://Scenes/Main Menu.gd" id="1_q8yb1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_01bg4"]
+font_size = 51
+
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_q8yb1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.156
+anchor_right = 0.5
+anchor_bottom = 0.156
+offset_left = -184.0
+offset_top = -0.0880051
+offset_right = 191.0
+offset_bottom = 133.912
+grow_horizontal = 2
+text = "You Win"
+label_settings = SubResource("LabelSettings_01bg4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -31.0
+offset_right = 84.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart"
+
+[node name="Button3" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.796
+anchor_right = 0.5
+anchor_bottom = 0.796
+offset_left = -84.0
+offset_top = 0.191956
+offset_right = 84.0
+offset_bottom = 62.192
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Menu"
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.617
+anchor_right = 0.5
+anchor_bottom = 0.617
+offset_left = -84.0
+offset_top = 0.18396
+offset_right = 84.0
+offset_bottom = 62.184
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
