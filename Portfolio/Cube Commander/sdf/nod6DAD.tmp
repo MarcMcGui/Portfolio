@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjawp624dig0g"]
+
+[ext_resource type="PackedScene" uid="uid://c0lfipqutwnla" path="res://Objects/SpawnTower.tscn" id="1_c7ko6"]
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="2_icg70"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_icmjr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wc1gi"]
+size = Vector3(3.101, 0.167788, 2.2512)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0135608, 0.999908, 0, -0.999908, 0.0135608, 0.0811137, 2.51392, 0.0545535)
+fov = 86.4411
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0411309, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0253674, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
+transform = Transform3D(10.3642, 0, 0, 0, 1, 0, 0, 0, 7.72618, 0, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Node3D/StaticBody3D"]
+material_override = SubResource("StandardMaterial3D_icmjr")
+size = Vector3(3.08546, 0.169316, 2.27537)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_wc1gi")
+
+[node name="Unit Box" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0525106, 0.490358, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.300306, 0.950768, 0.0765282, -0.00316556, -0.0792376, 0.996851, 0.953838, -0.299602, -0.0207858, -0.102076, 1.6809, 0.0313724)
+
+[node name="RigidBody3D2" parent="." instance=ExtResource("1_c7ko6")]
+transform = Transform3D(-0.998867, 0, -0.0475947, 0, 1, 0, 0.0475947, 0, -0.998867, -2.83198, 0.619345, 0.224477)
+
+[node name="GameManager" type="Node3D" parent="."]
+script = ExtResource("2_icg70")
